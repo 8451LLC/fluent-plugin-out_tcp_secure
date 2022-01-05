@@ -80,7 +80,7 @@ class Fluent::LoomsystemsOutput < Fluent::BufferedOutput
         record[@tag_key] = tag
       end
       if @use_json
-        messages.push Yajl.dump(record) + "\n"
+        messages.push Yajl.dump(record["message"]) + "\n"
       else
         messages.push record["message"].rstrip() + "\n"
       end
